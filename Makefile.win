@@ -1,0 +1,126 @@
+# Project: Duke3D
+# Compiler: m68k-Amiga-OS3
+# Compiler Type: MingW 3
+# Makefile created by wxDev-C++ 6.10.2 on 22/12/14 08:20
+
+CPP       = m68k-amigaos-g++.exe
+CC        = m68k-amigaos-gcc.exe
+WINDRES   = windres.exe
+OBJ       = obj/amiga_compat.o obj/amiga_display.o obj/amiga_driver.o obj/cache1d.o obj/engine.o obj/mmulti.o obj/actors.o obj/animlib.o obj/config.o obj/control.o obj/game.o obj/gamedef.o obj/global.o obj/keyboard.o obj/menues.o obj/player.o obj/premap.o obj/rts.o obj/scriplib.o obj/sector.o obj/sounds.o obj/amiga_dsl.o obj/fx_man.o obj/ll_man.o obj/multivoc.o obj/mv_mix.o obj/mvreverb.o obj/nodpmi.o obj/pitch.o obj/user.o obj/a.o obj/pragmas.o
+LINKOBJ   = obj/amiga_compat.o obj/amiga_display.o obj/amiga_driver.o obj/cache1d.o obj/engine.o obj/mmulti.o obj/actors.o obj/animlib.o obj/config.o obj/control.o obj/game.o obj/gamedef.o obj/global.o obj/keyboard.o obj/menues.o obj/player.o obj/premap.o obj/rts.o obj/scriplib.o obj/sector.o obj/sounds.o obj/amiga_dsl.o obj/fx_man.o obj/ll_man.o obj/multivoc.o obj/mv_mix.o obj/mvreverb.o obj/nodpmi.o obj/pitch.o obj/user.o obj/a.o obj/pragmas.o
+LIBS      = -L"C:/CrossCompiler/AmiDevCpp/usr/local/amiga/m68k-amigaos/lib" -L"C:/CrossCompiler/AmiDevCpp/usr/local/amiga/m68k-amigaos/lib/libb/libnix" -s -noixemul Engine/m_mmu.o Engine/c2p1x1_6_c5_bm_040.o Engine/c2p1x1_8_c5_bm_040.o   
+INCS      = -I"C:/CrossCompiler/AmiDevCpp/usr/local/amiga/m68k-amigaos/sys-include" -I"Engine"
+CXXINCS   = -I"C:/CrossCompiler/AmiDevCpp/usr/local/amiga/m68k-amigaos/sys-include" -I"Engine"
+RCINCS    = --include-dir "C:/CROSSC~1/AMIDEV~1/include"
+BIN       = Release/Duke3D.exe
+DEFINES   =  -DPLATFORM_AMIGA -DSTUB_NETWORKING
+CXXFLAGS  = $(CXXINCS) $(DEFINES) -funsigned-char -s -fomit-frame-pointer -ffast-math -m68060   -s -noixemul -fexpensive-optimizations -O2
+CFLAGS    = $(INCS) $(DEFINES) -funsigned-char -s -fomit-frame-pointer -ffast-math -m68060   -s -noixemul -fexpensive-optimizations -O2
+GPROF     = gprof.exe
+RM        = rm -f
+LINK      = m68k-amigaos-g++.exe
+
+.PHONY: all all-before all-after clean clean-custom
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	$(RM) $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(LINK) $(LINKOBJ) -o "Release\Duke3D.exe" $(LIBS)
+
+obj/amiga_compat.o: $(GLOBALDEPS) Engine/amiga_compat.c Engine/amiga_compat.h
+	$(CC) -c Engine/amiga_compat.c -o obj/amiga_compat.o $(CFLAGS)
+
+obj/amiga_display.o: $(GLOBALDEPS) Engine/amiga_display.c Engine/amiga_display.h Engine/amigasetupstructs.h Engine/amiga_mmu.h
+	$(CC) -c Engine/amiga_display.c -o obj/amiga_display.o $(CFLAGS)
+
+obj/amiga_driver.o: $(GLOBALDEPS) Engine/amiga_driver.c Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/amiga_display.h Engine/build.h Engine/display.h Engine/platform.h Engine/pragmas.h Engine/platform.h Engine/engine.h Engine/a.h Engine/cache1d.h
+	$(CC) -c Engine/amiga_driver.c -o obj/amiga_driver.o $(CFLAGS)
+
+obj/cache1d.o: $(GLOBALDEPS) Engine/cache1d.c Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/display.h Engine/platform.h Engine/pragmas.h Engine/platform.h Engine/cache1d.h
+	$(CC) -c Engine/cache1d.c -o obj/cache1d.o $(CFLAGS)
+
+obj/engine.o: $(GLOBALDEPS) Engine/engine.c Engine/pragmas.h Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/platform.h Engine/build.h Engine/cache1d.h Engine/engine.h Engine/display.h Engine/platform.h Engine/a.h
+	$(CC) -c Engine/engine.c -o obj/engine.o $(CFLAGS)
+
+obj/mmulti.o: $(GLOBALDEPS) Engine/mmulti.c Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/pragmas.h Engine/platform.h
+	$(CC) -c Engine/mmulti.c -o obj/mmulti.o $(CFLAGS)
+
+obj/actors.o: $(GLOBALDEPS) Game/actors.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/actors.c -o obj/actors.o $(CFLAGS)
+
+obj/animlib.o: $(GLOBALDEPS) Game/animlib.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/types.h Game/develop.h Game/util_lib.h Game/_animlib.h Game/animlib.h
+	$(CC) -c Game/animlib.c -o obj/animlib.o $(CFLAGS)
+
+obj/config.o: $(GLOBALDEPS) Game/config.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/scriplib.h Game/_functio.h
+	$(CC) -c Game/config.c -o obj/config.o $(CFLAGS)
+
+obj/control.o: $(GLOBALDEPS) Game/control.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/control.h Game/mouse.h
+	$(CC) -c Game/control.c -o obj/control.o $(CFLAGS)
+
+obj/game.o: $(GLOBALDEPS) Game/game.c Game/types.h Game/develop.h Game/scriplib.h Game/file_lib.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/control.h Game/fx_man.h Game/sndcards.h Game/sounds.h Game/config.h Game/sndcards.h Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/game.c -o obj/game.o $(CFLAGS)
+
+obj/gamedef.o: $(GLOBALDEPS) Game/gamedef.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/gamedef.c -o obj/gamedef.o $(CFLAGS)
+
+obj/global.o: $(GLOBALDEPS) Game/global.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/global.c -o obj/global.o $(CFLAGS)
+
+obj/keyboard.o: $(GLOBALDEPS) Game/keyboard.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/keyboard.h
+	$(CC) -c Game/keyboard.c -o obj/keyboard.o $(CFLAGS)
+
+obj/menues.o: $(GLOBALDEPS) Game/menues.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/mouse.h Game/animlib.h
+	$(CC) -c Game/menues.c -o obj/menues.o $(CFLAGS)
+
+obj/player.o: $(GLOBALDEPS) Game/player.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/player.c -o obj/player.o $(CFLAGS)
+
+obj/premap.o: $(GLOBALDEPS) Game/premap.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/premap.c -o obj/premap.o $(CFLAGS)
+
+obj/rts.o: $(GLOBALDEPS) Game/rts.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/rts.c -o obj/rts.o $(CFLAGS)
+
+obj/scriplib.o: $(GLOBALDEPS) Game/scriplib.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h Game/scriplib.h
+	$(CC) -c Game/scriplib.c -o obj/scriplib.o $(CFLAGS)
+
+obj/sector.o: $(GLOBALDEPS) Game/sector.c Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/sndcards.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/duke3d.h Game/sndcards.h Game/sndcards.h Game/names.h Game/funct.h
+	$(CC) -c Game/sector.c -o obj/sector.o $(CFLAGS)
+
+obj/sounds.o: $(GLOBALDEPS) Game/sounds.c Game/types.h Game/sndcards.h Game/fx_man.h Game/sndcards.h Game/music.h Game/duke3d.h Game/dukeunix.h Game/dukeamiga.h Game/dukewin.h Game/function.h Game/types.h Game/file_lib.h Game/develop.h Game/gamedefs.h Game/keyboard.h Game/util_lib.h Game/function.h Game/fx_man.h Game/config.h Game/sounds.h Game/control.h Game/_rts.h Game/rts.h Game/soundefs.h Game/task_man.h Game/music.h Game/sndcards.h Game/names.h Game/funct.h Game/sndcards.h Game/util_lib.h Game/duke3d.h
+	$(CC) -c Game/sounds.c -o obj/sounds.o $(CFLAGS)
+
+obj/amiga_dsl.o: $(GLOBALDEPS) Game/audiolib/amiga_dsl.c Game/audiolib/dsl.h Game/audiolib/util.h
+	$(CC) -c Game/audiolib/amiga_dsl.c -o obj/amiga_dsl.o $(CFLAGS)
+
+obj/fx_man.o: $(GLOBALDEPS) Game/audiolib/fx_man.c Game/audiolib/sndcards.h Game/audiolib/multivoc.h Game/audiolib/dsl.h Game/audiolib/ll_man.h Game/audiolib/user.h Game/audiolib/fx_man.h Game/audiolib/sndcards.h
+	$(CC) -c Game/audiolib/fx_man.c -o obj/fx_man.o $(CFLAGS)
+
+obj/ll_man.o: $(GLOBALDEPS) Game/audiolib/ll_man.c Game/audiolib/ll_man.h Game/audiolib/dpmi.h
+	$(CC) -c Game/audiolib/ll_man.c -o obj/ll_man.o $(CFLAGS)
+
+obj/multivoc.o: $(GLOBALDEPS) Game/audiolib/multivoc.c Game/audiolib/util.h Game/audiolib/dpmi.h Game/audiolib/usrhooks.h Game/audiolib/interrup.h Game/audiolib/dma.h Game/audiolib/linklist.h Game/audiolib/sndcards.h Game/audiolib/dsl.h Game/audiolib/pitch.h Game/audiolib/multivoc.h Game/audiolib/_multivc.h Game/audiolib/debugio.h
+	$(CC) -c Game/audiolib/multivoc.c -o obj/multivoc.o $(CFLAGS)
+
+obj/mv_mix.o: $(GLOBALDEPS) Game/audiolib/mv_mix.c Game/audiolib/multivoc.h
+	$(CC) -c Game/audiolib/mv_mix.c -o obj/mv_mix.o $(CFLAGS)
+
+obj/mvreverb.o: $(GLOBALDEPS) Game/audiolib/mvreverb.c Game/audiolib/multivoc.h Game/audiolib/_multivc.h
+	$(CC) -c Game/audiolib/mvreverb.c -o obj/mvreverb.o $(CFLAGS)
+
+obj/nodpmi.o: $(GLOBALDEPS) Game/audiolib/nodpmi.c Game/audiolib/dpmi.h
+	$(CC) -c Game/audiolib/nodpmi.c -o obj/nodpmi.o $(CFLAGS)
+
+obj/pitch.o: $(GLOBALDEPS) Game/audiolib/pitch.c Game/audiolib/dpmi.h Game/audiolib/standard.h Game/audiolib/pitch.h
+	$(CC) -c Game/audiolib/pitch.c -o obj/pitch.o $(CFLAGS)
+
+obj/user.o: $(GLOBALDEPS) Game/audiolib/user.c Game/audiolib/user.h
+	$(CC) -c Game/audiolib/user.c -o obj/user.o $(CFLAGS)
+
+obj/a.o: $(GLOBALDEPS) Engine/a.c Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/build.h
+	$(CC) -c Engine/a.c -o obj/a.o $(CFLAGS)
+
+obj/pragmas.o: $(GLOBALDEPS) Engine/pragmas.c Engine/platform.h Engine/unix_compat.h Engine/amiga_compat.h Engine/pragmas.h Engine/platform.h
+	$(CC) -c Engine/pragmas.c -o obj/pragmas.o $(CFLAGS)
